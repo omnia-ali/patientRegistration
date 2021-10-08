@@ -1,0 +1,66 @@
+.host{
+  height: 100%;
+}
+
+// ::ng-deep .cdk-overlay-pane {
+//  width: 60% !important;
+
+// }
+
+// .mat-radio-button{
+//   margin: 5px;
+// }
+.form-group {
+  //margin-top: 10px;
+  align-items: center;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+::ng-deep.year-picker .mat-calendar-period-button {
+  pointer-events: none;
+}
+::ng-deep.year-picker .mat-calendar-arrow {
+  display: none;
+}
+.diabledDiv {
+  background-color: #9c9a9a;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+
+// ::ng-deep .cdk-overlay-pane{
+//   position: relative !important;
+// }
+.mat-dialog-title {
+  position: relative !important;
+}
+.close-button {
+  position: absolute;
+  top: -15px;
+    right: 0;
+  padding: 5px;
+  line-height: 14px;
+  min-width: auto;
+}
+.mat-form-field-wrapper {
+  /* padding-bottom: 1.34375em; */
+  padding-bottom:0px ;
+}
+
+// .mat-dialog-container {
+//   background-size: cover;
+//   min-height: auto;
+//   height: 100%;
+//   border-radius: 5px !important;
+//   padding: 5px !important;
+//   -webkit-border-radius: 5px !important;
+//   -moz-border-radius: 5px !important;
+//   -ms-border-radius: 5px !important;
+//   -o-border-radius: 5px !important;
+// }

@@ -1,0 +1,30 @@
+<div class="title-div">
+  <span class="align-self-end group-span">{{GroupInfo.GroupTitle}}</span>
+  <div>
+    <button mat-button class="btn main-btn me-1" disabled>
+      <i class="fa fa-trash-o  " aria-hidden="true"></i>Delete selected</button>
+    <button mat-button class="btn main-btn" disabled>
+      <i class="fa fa-check" aria-hidden="true"></i> Done</button>
+  </div>
+</div>
+<div class="row  group-div  p-1 mx-1">
+  <ul class="list-group  p-0 m-0" style="width: 100%;">
+    <li *ngFor="let task of GroupInfo.todoTasks" class="list-group-item   mat-elevation-z2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          {{task.Title}}
+        </label>
+      </div>
+      <div class="icon-div  ms-auto ">
+        <button mat-mini-fab class="me-3">
+          <i class="fa fa-trash-o  fa-x" aria-hidden="true"></i>
+        </button>
+        <button mat-mini-fab>
+          <i class="fa fa-check  fa-x" aria-hidden="true"></i>
+        </button>
+      </div>
+    </li>
+
+  </ul>
+</div>

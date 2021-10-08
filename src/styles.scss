@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+
+
+/***********************************************grid table*/
+table.fullWidth {
+  width: 100%;
+
+}
+
+.mat-form-field.full-width {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-form-field.fieldwithlabel {
+  font-size: 14px;
+  width: 80%;
+}
+
+ .form-group mat-label {
+margin-right: 10px;
+}
+table.fullWidth  td, th {
+  width: 25%;
+}
+table .mat-row:hover{
+  background-color: rgba(0,0,0,.075);
+}
+/******************************buttons**************************/
+
+.main-btn {
+  background-color: #1a3c5a;
+  color: white;
+}
+.main-btn i {
+  padding: 0 2px;
+}
+.main-btn.mat-button-disabled {
+  color: #b9cfdc;
+  background-color: #8da3b0;
+}
+.main-btn.btn-lg{   padding: 0.4em 0.5em;
+  margin-top: 3px;}
+/******************************************dialog **********************************/
+::ng-deep .cdk-overlay-pane{
+  width: 60% !important;
+}
+
+form.normal-form {
+  margin: 10px;
+}

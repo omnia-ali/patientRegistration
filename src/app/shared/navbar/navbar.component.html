@@ -1,0 +1,17 @@
+<mat-toolbar class="header">
+  <div class="headertoggel d-flex justify-content-between"
+  [ngStyle]="{'background-color': opened? '#678bad':'#4d708e'}">
+    <button mat-icon-button (click)="ToggleSideBar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button >
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+  <div class="header-text">
+    Today
+  </div>
+</mat-toolbar>
+
+
+<!-- <router-outlet></router-outlet> -->

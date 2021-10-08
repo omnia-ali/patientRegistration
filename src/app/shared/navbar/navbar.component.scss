@@ -1,0 +1,33 @@
+
+::ng-deep mat-toolbar {
+  padding: 0;
+  margin: 0;
+}
+.header .header-text{
+  padding: 10px;
+}
+.header {
+  //position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  background-color: #4d708e;
+  color:white;
+  font-weight: normal;
+}
+
+.headertoggel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  height: 100%;
+  background-color: #678bad;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}

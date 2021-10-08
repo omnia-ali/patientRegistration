@@ -1,0 +1,48 @@
+<mat-sidenav-container class="div-container">
+  <mat-sidenav #sidenav mode="side" [opened]="sideStatus" class="sidenav" fixedInViewport="false">
+    <mat-expansion-panel class="expand-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <img class="navprofile-img" src="/assets/imgs/customer1.jpg" alt="">
+          Personal data
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsa accusamus ipsam assumenda. Consequuntur velit
+      nam iste nemo aliquid quae, possimus maiores enim sint nisi numquam placeat expedita ullam optio?
+    </mat-expansion-panel>
+
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <h4>Home</h4>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>list</mat-icon>
+      <h4>  All</h4>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>today</mat-icon>
+        <h4>Today</h4>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>calendar_today</mat-icon>
+        <h4>Week</h4>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>task_alt</mat-icon>
+        <h4>  Done</h4>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>delete_outline</mat-icon>
+        <h4>Deleted</h4>
+      </mat-list-item>
+
+
+    
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content #name></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

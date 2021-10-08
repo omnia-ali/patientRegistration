@@ -1,0 +1,209 @@
+<div mat-dialog-title>
+  <h1 mat-dialog-title>Patient Registeration </h1>
+
+  <button class="close-button" mat-button (click)="close()">
+    <mat-icon>clear</mat-icon>
+  </button>
+  <hr>
+</div>
+
+<mat-dialog-content class="mat-typography" class="normal-form">
+
+  <form [formGroup]="form" class="normal-form">
+    <h2>Patient Data </h2>
+    <hr>
+    <div class="row wrap">
+      <input type="hidden" formControlName="Id">
+      <div class="form-group row">
+        <mat-label class="col-2 p-0">
+          Patient Arabic Name
+        </mat-label>
+        <mat-form-field class="col-10 fieldwithlabel" appearance="outline">
+          <input formControlName="NameAr" matInput placeholder="Name Arabic">
+        </mat-form-field>
+      </div>
+      <div class="form-group row">
+        <mat-label class="col-2 p-0">
+          Patient English Name
+        </mat-label>
+        <mat-form-field class="fieldwithlabel col-10" appearance="outline">
+          <input formControlName="NameEn" matInput placeholder="English Name">
+        </mat-form-field>
+      </div>
+      <div class="form-group row my-2">
+        <label mat-label class="col-2">Gender </label>
+        <mat-radio-group class="col-10" formControlName="Gender">
+          <mat-radio-button name="gender" value="male"> Male </mat-radio-button>
+          <mat-radio-button name="gender" value="female"> Female </mat-radio-button>
+          <mat-radio-button name="gender" value="-1"> Not Specified </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="form-group row my-2">
+        <label class="col-2">Marital status</label>
+        <mat-radio-group class="col-10" formControlName="MaritalStatus">
+          <mat-radio-button name="MaritalStatus" value="1"> Single </mat-radio-button>
+          <mat-radio-button name="MaritalStatus" value="2"> Maried </mat-radio-button>
+          <mat-radio-button name="MaritalStatus" value="-1"> Non </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="form-group row">
+        <label mat-label class="col-2">Date of Birth</label>
+        <mat-form-field appearance="outline" class="fieldwithlabel col-10 ">
+          <input matInput formControlName="BD" [matDatepicker]="picker" [max]="maxDate"
+          placeholder="Ex : 10/27/2021" (dateInput)="addEvent('input', $event)"
+          (dateChange)="addEvent('change', $event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-group row flex-row-reverse">
+        <div class=" col-10 ">
+          <mat-checkbox #checkbox formControlName="checkedEstimate" (change)="calculateAge(checkbox.checked)" >Estimated Age </mat-checkbox>
+          <div class="row" [ngClass]="!checkbox.checked? 'diabledDiv': ''">
+            <mat-form-field class="col-6">
+              <input matInput placeholder="Estimate Years" formControlName="age" [disabled]="!checkbox.checked">
+            </mat-form-field>
+            <mat-form-field class="col-6">
+              <input matInput placeholder="Estimate Monthes" formControlName="ageMonths" [disabled]="!checkbox.checked">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row my-2">
+        <label mat-label class="col-2">Religion</label>
+        <mat-radio-group class=" col-10" formControlName="Religion">
+          <mat-radio-button name="MaritalStatus" value="1"> Muslim </mat-radio-button>
+          <mat-radio-button name="MaritalStatus" value="2"> christen </mat-radio-button>
+          <mat-radio-button name="MaritalStatus" value="3"> others </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="form-group row ">
+        <mat-label class="col-2">Choose an option</mat-label>
+        <mat-form-field appearance="outline" class="fieldwithlabel col-10">
+          <mat-select formControlName="Nationality">
+            <mat-option value="" selected>select Nationality</mat-option>
+            <mat-option *ngFor="let item of NationalityList let i=index" value="i">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-group row ">
+        <mat-label class="col-2  m-0">ID</mat-label>
+        <div class="col-10">
+
+          <mat-form-field class=" col-6 pe-4" appearance="outline">
+            <input formControlName="Id" matInput placeholder="Id ">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class=" col-6 ">
+            <mat-select formControlName="IdType">
+              <mat-option value="" selected>select Type</mat-option>
+              <mat-option value="1" selected>National Id</mat-option>
+              <mat-option value="2" selected>Passport</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- <div class="row ">
+           <mat-form-field class="year-picker col-4">
+          <mat-label>select year </mat-label>
+          <input matInput [matDatepicker]="datepicker" [formControl]="_inputCtrl"
+            (click)="_openDatepickerOnClick(datepicker)" (focus)="_openDatepickerOnFocus(datepicker)" readonly>
+          <mat-datepicker #datepicker startView="multi-year" (yearSelected)="_yearSelectedHandler($event,datepicker)"
+            panelClass="year-picker">
+          </mat-datepicker>
+        </mat-form-field>
+      </div> -->
+
+
+      </div>
+    </div>
+    <h2>Address and Contact</h2>
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group row ">
+          <mat-label class="col-4 m-0">Country</mat-label>
+          <mat-form-field appearance="outline" class=" col-8 ">
+            <mat-select formControlName="Country" (selectionChange)="changeAddress($event,'Country')">
+              <mat-option value="" selected>select Country</mat-option>
+              <mat-option [value]="country.id" *ngFor="let country of   Countries let i =index" >{{country.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group row ">
+          <mat-label class="col-4 m-0">City</mat-label>
+          <mat-form-field appearance="outline" class=" col-8 ">
+            <mat-select formControlName="City" (selectionChange)="changeAddress($event,'City')">
+              <mat-option value=""   selected>select City</mat-option>
+              <mat-option [value]="city.id" *ngFor="let city of   Cities let i =index" >{{city.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group row ">
+          <mat-label class="col-4 m-0">Region</mat-label>
+          <mat-form-field appearance="outline" class=" col-8 ">
+            <mat-select formControlName="Region">
+              <mat-option value="" selected>select Region</mat-option>
+              <mat-option [value]="Region.id" *ngFor="let Region of   Regions let i =index" >{{Region.name}}</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group row ">
+          <mat-label class="col-4 m-0">Address Line</mat-label>
+          <mat-form-field appearance="outline" class=" col-8 ">
+            <textarea formControlName="AddressLine" type="text" matLine="5"
+
+            matInput placeholder="Address Line"></textarea>
+<!--
+<input matInput type="month" id="start" name="start"
+min="2018-03" value="2018-05"> -->
+
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-6">
+
+        <div class="form-group row">
+          <mat-label class="col-2 p-0">
+            Work Phone
+          </mat-label>
+          <mat-form-field class="col-10 fieldwithlabel" appearance="outline">
+            <input formControlName="WorkPhone" matInput placeholder="Work Phone">
+          </mat-form-field>
+        </div>
+        <div class="form-group row">
+          <mat-label class="col-2 p-0">
+            Mobile Phone
+          </mat-label>
+          <mat-form-field class="col-10 fieldwithlabel" appearance="outline">
+            <input formControlName="MobilePhone" matInput placeholder="Mobile Phone">
+          </mat-form-field>
+        </div>
+        <div class="form-group row">
+          <mat-label class="col-2 p-0">
+            Home Phone
+          </mat-label>
+          <mat-form-field class="col-10 fieldwithlabel" appearance="outline">
+            <input formControlName="HomePhone" matInput placeholder="Home Phone">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group row">
+          <mat-label class="col-2 p-0">
+            Email
+          </mat-label>
+          <mat-form-field class="col-10 fieldwithlabel" appearance="outline">
+            <input formControlName="Email" type="email"  matInput placeholder="Email">
+          </mat-form-field>
+
+        </div>
+      </div>
+</div>
+  </form>
+</mat-dialog-content>
+<div mat-dialog-actions>
+
+  <button mat-raised-button (click)="check()">check</button>
+  <button mat-raised-button (click)="close()">Close</button>
+  <button mat-raised-button color="primary" type="submit" (click)="save()" [disabled]="form.invalid">Save</button>
+</div>
